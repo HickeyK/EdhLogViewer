@@ -1,0 +1,39 @@
+﻿<Window x:Class="EdhLogViewerUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EdhLogViewerUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        
+        <StackPanel DataContext="{Binding QueryParamsViewModel}" Grid.Row="0">
+            <local:QueryParamsView x:Name="ParamsView"/>
+        </StackPanel>
+
+        <Button x:Name="retrieveByProcessName" Content="Retrieve By Process Name"
+                Grid.Row="1"
+                Command="{Binding RetrieveByProcessNameCommand}"
+                CommandParameter="{Binding Text, ElementName=processName}"
+        />
+        <Button x:Name="retrieve" Content="Retrieve"
+                Grid.Row="2"
+                Command="{Binding RetrieveByParamsCommand}"
+                CommandParameter="{Binding QueryParamsViewModel}"
+        />
+
+        <DataGrid x:Name="RequestsDataGridSec" 
+                              Grid.Row="3"
+                              Grid.Column="0"
+                              ItemsSource="{Binding LogMessages}"/>
+    </Grid>
+</Window>
