@@ -10,16 +10,24 @@ namespace DataAccess.Tests
 {
     public class DatabaseFixture
     {
-        public EdhLogDataContext EdhLogDataContext { get; set; }
+        public IEdhLogDataContext EdhLogDataContext { get; set; }
 
+        const bool UseFakeContext = true;
 
         public DatabaseFixture()
         {
-            var databaseConfigFileName = "EdhLogViewer.database.config";
-            var installationDirectory = @"c:\Dev\EdhLogViewer\DataAccess";
-            var databaseConfig = System.IO.Path.Combine(installationDirectory, databaseConfigFileName);
-            var mappingSource = XmlMappingSource.FromUrl(databaseConfig);
-            EdhLogDataContext = new EdhLogDataContext("Data Source=EDHDBSIT01,65000;Initial Catalog=ODS_SIT01;Integrated Security=True", mappingSource, false, 30);
+            if (UseFakeContext)
+            {
+                EdhLogDataContext = new EdhLogFakeDataContext();
+            }
+            else
+            {
+                var databaseConfigFileName = "EdhLogViewer.database.config";
+                var installationDirectory = @"c:\Dev\EdhLogViewer\DataAccess";
+                var databaseConfig = System.IO.Path.Combine(installationDirectory, databaseConfigFileName);
+                var mappingSource = XmlMappingSource.FromUrl(databaseConfig);
+                EdhLogDataContext = new EdhLogDataContext("Data Source=EDHDBSIT01,65000;Initial Catalog=ODS_SIT01;Integrated Security=True", mappingSource, false, 30);
+            }
 
         }
 

@@ -15,6 +15,17 @@ namespace EdhLogViewer.Entities
         public short MessageType { get; set; }
         public string ProcessType { get; set; }
         public string ProcessName { get; set; }
+
+        public ProcessLog(string logId, string runId, string logTime, string logMessage, string messageType, string processType, string processName)
+        {
+            LogId = int.Parse(logId);
+            RunId = int.Parse(runId);
+            LogTime = DateTime.Parse(logTime);
+            LogMessage = logMessage;
+            MessageType = short.Parse(messageType);
+            ProcessType = processType;
+            ProcessName = processName;
+        }
     }
 }
 

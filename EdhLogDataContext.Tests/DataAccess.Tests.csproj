@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="DatabaseFixture.cs" />
     <Compile Include="EdhLogDataContextTests.cs" />
+    <Compile Include="EdhLogFakeDataContextTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

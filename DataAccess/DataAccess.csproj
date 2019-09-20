@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EdhLogDataContext.cs" />
+    <Compile Include="EdhLogFakeDataContext.cs" />
     <Compile Include="IEdhLogDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

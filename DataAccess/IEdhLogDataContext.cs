@@ -8,7 +8,7 @@ namespace DataAccess
     public interface IEdhLogDataContext : IDisposable
     {
 
-        Table<ProcessLog> ProcessLog { get; }
+        //Table<ProcessLog> ProcessLog { get; }
 
         Table<SchedulerComponentParameter> SchedulerComponentParameter { get; }
 

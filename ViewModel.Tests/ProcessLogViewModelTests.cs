@@ -18,14 +18,14 @@ namespace ViewModel.Tests
             var dc = new Mock<IEdhLogDataContext>();
             dc.Setup(x => x.NameStartsWithQuery(It.IsAny<string>()))
                 .Returns(
-                new List<ProcessLog>( new ProcessLog[] { new ProcessLog { LogId = 1 } })
+                new List<ProcessLog>( new ProcessLog[] { new ProcessLog("1","","","","","","") })
                 );
 
 
             var vm = new ProcessLogViewModel(dc.Object);
             
 
-            vm.RetrieveByProcessNameCommand.Execute("1000 EDH");
+            vm.RetrieveByProcessNameCommand.Execute("1000 CRD Order ID Load");
 
             Assert.IsNotNull(vm);
         }

@@ -21,7 +21,7 @@ namespace DataAccess
 
         #region Linq Tables
 
-        public Table<ProcessLog> ProcessLog
+        Table<ProcessLog> ProcessLog
         {
             get { return GetTable<ProcessLog>(); }
         }
